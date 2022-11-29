@@ -1,1 +1,63 @@
+body {
+    background-color: white !important;
+    margin: 0 !important;
+}
 
+.tittle {
+    color: rgb(244, 160, 4);
+    font-size: 4.5vw !important;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.header-wrapper {
+    background-color: #ebeaea;
+    padding: 5px 0;
+}
+
+
+
+
+.search-input:focus, .search-input:hover {
+    box-shadow: 0 0 0.1rem 0.1rem #ece6e6;
+    background: #faf6f6;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .search-input {
+        width: 95% !important;
+        font-size: 1.25rem !important;
+        border-radius: .2rem !important;
+        margin: 1rem auto !important;
+    }
+}
+
+    .search-input {
+        color: orange;
+        width: 50%;
+        height: 5rem;
+        margin: 3rem auto;
+        text-indent: 2rem;
+        outline: none;
+        border: .2rem solid #f8e7e7;
+        font-size: 2rem;
+        border-radius: 3rem;
+        background: #faf6f6;
+    }
+
+.country-card-wrapper{
+    background-color: #ebeaea;
+}
+
+.country-card{
+    background-color: white;
+    padding: 20px;
+    margin:30px;
+}
+
+.country-card-wrapper{
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+}
