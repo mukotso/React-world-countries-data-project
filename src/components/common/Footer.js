@@ -1,8 +1,13 @@
 import React from 'react';
-
+import '../../styles/footer.scss'
 const Footer = ()=>{
     return (
-        <h1>footer</h1>
+    <div className={'footer'}>
+       <center>
+           <h4>Copyright &#169; 2022  <br/>
+               All rights reserved</h4>
+       </center>
+    </div>
     )
 }
 
