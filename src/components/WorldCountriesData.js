@@ -1,18 +1,70 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from './Header'
-
+import axios from "axios";
 const WorldCountriesData = () => {
+    const [countriesData , setCountriesData] = useState([]);
+    const [searchTerm , setSearchTerm] = useState('');
+
+    useEffect(()=>{
+        fetchCountriesData();
+    }, [])
+
+    useEffect(()=>{
+        searchCountry();
+    },[searchTerm])
+
+   const  fetchCountriesData = async ()=>{
+        axios.get('https://restcountries.com/v2/all')
+            .then((response)=>{
+                const data =  response.data
+                setCountriesData(data)
+            })
+
+    }
+
+    const searchCountry = () =>{
+        axios.get('https://restcountries.com/v2/name/'+searchTerm)
+         .then((response)=>{
+            const data =  response.data
+            setCountriesData(data)
+        })
+    }
+
+   function  handleChange(e){
+        const value = e.target.value;
+        setSearchTerm(value)
+    }
+
+
     return (
         <>
-            <Header/>
+            <Header countriesData={countriesData}/>
+            <center>
+                <input  className='search-input' type={'text'} placeholder={'Search countries by name'}
+                        onChange={handleChange}
+                />
+
+            </center>
+
             <div className={'country-card-wrapper'}>
-                <div className={'country-card'}>
-                    <img src={""} alt={'country-flag'}/>
-                    <h2> Capital : <br/>
-                        Languages: <br/>
-                        Population: <br/>
-                        currency: </h2>
-                </div>
+
+                {countriesData.map((country) => {
+                    const {name , flag, population , capital,languages } = country;
+
+                    return (
+                        <div className={'country-card'}>
+                            <img style={{width:'100%' , height:180}} src={flag} alt={'country-flag'}/>
+                            <h2> Name : {name} <br/>
+                                Capital : {capital} <br/>
+                                {/*Languages:  {languageNames} <br/>*/}
+                                Population: {population} <br/>
+                                {/*/!*currency: {country.currencies.symbol} */}
+                                </h2>
+                        </div>
+                    )
+                })
+
+                }
 
             </div>
         </>
