@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from './Header'
 import axios from "axios";
 const WorldCountriesData = () => {
+    const [allCountriesData , setAllCountriesData] = useState([]);
     const [countriesData , setCountriesData] = useState([]);
     const [searchTerm , setSearchTerm] = useState('');
 
@@ -13,11 +14,12 @@ const WorldCountriesData = () => {
         searchCountry();
     },[searchTerm])
 
-   const  fetchCountriesData = async ()=>{
+   const  fetchCountriesData =  ()=>{
         axios.get('https://restcountries.com/v2/all')
             .then((response)=>{
                 const data =  response.data
                 setCountriesData(data)
+                setAllCountriesData(data)
             })
 
     }
@@ -38,7 +40,7 @@ const WorldCountriesData = () => {
 
     return (
         <>
-            <Header countriesData={countriesData}/>
+            <Header countriesData={allCountriesData}/>
             <center>
                 <input  className='search-input' type={'text'} placeholder={'Search countries by name'}
                         onChange={handleChange}
