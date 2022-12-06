@@ -61,3 +61,42 @@ body {
     grid-column-gap: 20px;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
 }
+
+.btn-yellow {
+    background: orange;
+    display: inline-block;
+    width: 12rem;
+    height: 3rem;
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+    margin: auto .5rem;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .075rem;
+    font-size: 1.25rem;
+}
+
+.population-container{
+    margin-left:8.5%;
+    margin-right:8.5%;
+}
+
+.country-name{
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: .1rem;
+    font-size: 1.25rem;
+    margin-right:15%;
+}
+
+.population-bar{
+    background: orange;
+    border-radius: .2rem;
+    border: .1rem solid orange;
+    height: 35px;
+    width: 100px;
+}
