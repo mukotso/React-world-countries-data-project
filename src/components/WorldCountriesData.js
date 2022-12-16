@@ -90,7 +90,7 @@ const WorldCountriesData = () => {
                 <button onClick={toggleShowLanguages}  className={'btn-yellow'}>LANGUAGES</button>
             </center>
 
-            {showPopulation && <Population data={allCountriesData}/> }
+            {showPopulation && <Population className={'population'} data={allCountriesData}/> }
             {showLanguages &&  <Languages data={allCountriesData}/> }
         </>
     )
