@@ -1,13 +1,11 @@
-import WorldData from './WorldCountriesData';
-import Footer from './common/Footer'
+import Login from './Login'
 import React from "react";
 import '../styles/index.css'
 
  const app = (
     <div  className='app'>
         <>
-            <WorldData/>
-            <Footer/>
+            <Login/>
         </>
     </div>
 )
